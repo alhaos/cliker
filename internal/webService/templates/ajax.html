@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Тест</title>
+</head>
+<body>
+<h1>Тест AJAX</h1>
+<button onclick="sendRequest()">Получить данные</button>
+<div id="response"></div>
+
+<script>
+    function sendRequest() {
+        fetch('/api/data')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerHTML = `
+                        <p>Сообщение: ${data.message}</p>
+                        <p>Статус: ${data.status}</p>
+                    `;
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+            });
+    }
+</script>
+</body>
+</html>

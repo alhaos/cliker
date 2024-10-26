@@ -1,0 +1,5 @@
+# Cliker config file
+
+webService:
+  address: ":8080"
+  mode: test # available value production or test
